@@ -1,0 +1,124 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Profile
+{% endblock %}
+
+{% block body %}
+	<style>{% include 'css/profile.css' %}</style>
+	<br>
+	<div class="container emp-profile">
+		{% if app.user %}
+			<div class="row">
+				<div class="col-md-4">
+					<div class="profile-img">
+						<img class="profile-img"" src="images/cvs/{{employee.cv}}" alt="profile_img">
+						<br><br>
+					</div>
+				</div>
+				<br>
+				<br>
+				<div class="col-md-8">
+					<div class="profile-head">
+						<h2> {{employee.nom }} {{employee.prenom }}
+						</h2>
+						<h4> {{employee.profile }}
+						</h4><br><br>
+						<ul class="nav nav-tabs mb-2" id="myTab" role="tablist">
+							<li class="nav-item">
+								<a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">About</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-4">
+					<div class="profile-work"></div>
+				</div>
+				<div class="col-md-8">
+					<div class="tab-content profile-tab" id="myTabContent">
+						<div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+							<div class="row">
+								<div class="col-md-6">
+									<label>Name</label>
+								</div>
+								<div class="col-md-6">
+									<p>{{employee.nom }} {{employee.prenom }}</p>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-6">
+									<label>Cin</label>
+								</div>
+								<div class="col-md-6">
+									<p>{{employee.cin }}</p>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-6">
+									<label>Adresse</label>
+								</div>
+								<div class="col-md-6">
+									<p>{{employee.adresse }}</p>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-6">
+									<label>Email</label>
+								</div>
+								<div class="col-md-6">
+									<p>{{employee.email }}</p>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-6">
+									<label>Phone</label>
+								</div>
+								<div class="col-md-6">
+									<p>{{employee.phone }}</p>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-6">
+									<label>Statue</label>
+								</div>
+								<div class="col-md-6">
+									<p>{{employee.Statue }}</p>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-6">
+									<label>Rib</label>
+								</div>
+								<div class="col-md-6">
+									<p>{{employee.rib }}</p>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-6">
+									<label>Salaire</label>
+								</div>
+								<div class="col-md-6">
+									<p>{{employee.salaire }}</p>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-6">
+									<label>type contrat</label>
+								</div>
+								<div class="col-md-6">
+									<p>{{employee.nom }}</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		{% else %}
+			<div class="container">
+				<h2 class="text-center mt-5">vous n'êtes pas encore connecté</h2>
+				<h5 class="text-center text-secondary mt-3">essayez de vous connecter puis réessayez</h5>
+			</div>
+		{% endif %}
+	</div>
+{% endblock %}

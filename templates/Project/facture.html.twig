@@ -1,0 +1,99 @@
+{% block stylesheets %}
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+
+{% endblock %}
+{% block body %}
+	<style>{% include 'css/facture.css' %}</style>
+	<div>
+		<div class="container">
+			<div class="invoice">
+				<div class="row">
+					<div class="col-7">
+						<h1>R<b>Y</b>S</h1>
+					</div>
+					<div class="col-4">
+						<h1 class="document-type display-4">FACTURE</h1>
+						<p class="text-right">
+							<strong>Facture N° {{Project.id}}</strong>
+						</p>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-7">
+						<p>
+							<strong>INSEA</strong><br>
+							Institut National de Statistique et d'Economie Appliquée Rabat-Instituts Rabat B.P.
+						</p>
+					</div>
+					<div class="col-5">
+						<br><br><br>
+						<p>
+							<strong>Proprietaire: Mrs/Ms {{Project.Proprietaire}}</strong><br>
+						</p>
+					</div>
+				</div>
+				<br>
+				<br>
+				<h6>Facture</h6>
+				<br>
+				<table class="table table-striped text-center">
+					<thead>
+						<tr>
+							<th>Nom</th>
+							<th>Date de création</th>
+							<th>Dépenses</th>
+							<th>Montant Payé</th>
+							<th>le reste</th>
+
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>{{Project.nom}}</td>
+							<td>{{Project.Datec|date('d-m-Y')}}</td>
+							<td>{{Project.Depenses}}MAD</td>
+							<td>{{Project.Mpaye}}MAD</td>
+							<td>{{Project.Depenses - Project.Mpaye}}MAD</td>
+						</tr>
+					</tbody>
+				</table>
+				<div class="row">
+					<div class="col-8"></div>
+					<div class="col-4">
+						<table class="table table-sm">
+							<tr>
+								<td>
+									<strong>Total à payé</strong>
+								</td>
+								<td >{{Project.Depenses - Project.Mpaye}}MAD</td>
+							</tr>
+						</table>
+					</div>
+				</div>
+
+				<p class="conditions">
+					En votre aimable règlement
+					<br>
+					Et avec nos remerciements.
+					<br><br>
+					Conditions de paiement : paiement à réception de facture, à 15 jours.
+					<br>
+					Aucun escompte consenti pour règlement anticipé.
+					<br>
+					Règlement par virement bancaire.
+					<br><br>
+					En cas de retard de paiement, indemnité forfaitaire pour frais de recouvrement : 40 euros (art. L.4413 et L.4416 code du commerce).
+				</p>
+
+				<br>
+				<br>
+				<br>
+				<br>
+
+				<p class="bottom-page text-right">
+					Institut National de Statistique et d'Economie Appliquée Rabat-Instituts Rabat B.P.
+				</p>
+			</div>
+		</div>
+	</div>
+{% endblock %}

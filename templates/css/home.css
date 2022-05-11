@@ -1,0 +1,22 @@
+@font-face {
+  font-family: "Herbarium";
+  src: url("font/Herbarium.otf");
+}
+.bg {
+  background: url("img/back3.jpg") no-repeat center center fixed;
+
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+.rys {
+  font-size: 8cm;
+  font-family: Courier, monospace;
+}
+hr {
+  color: white;
+}
+.blur{
+  backdrop-filter: blur(2px);
+}

@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Projets
+{% endblock %}
+
+{% block body %}
+	<style>{% include 'css/employees.css' %}</style>
+	<h1 class="text-center text-dark">Projets</h1><br>
+	<div>
+		<div class="table-responsive">
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th>Id</th>
+						<th>Nom</th>
+						<th>Date de création</th>
+						<th>Etat</th>
+						<th></th>
+					</tr>
+				</thead>
+				<tbody>
+					{% for projet in Projects %}
+						<tr>
+							<td>{{projet.Id}}</td>
+							<td>{{projet.nom}}</td>
+							<td>{{projet.Datec|date('d-m-Y')}}</td>
+							{% if projet.Etat == "en cours" %}
+								<td class="text-warning et">{{projet.Etat}}</td>
+							{% endif %}
+							{% if projet.Etat == "terminé" or projet.Etat == "finaliser" %}
+								<td class="text-info et">{{projet.Etat}}</td>
+							{% endif %}
+							{% if projet.Etat == "livrer" %}
+								<td class="text-success et">{{projet.Etat}}</td>
+							{% endif %}
+							{% if projet.Etat == "annuler" %}
+								<td class="text-danger et">{{projet.Etat}}</td>
+							{% endif %}
+							<td>
+								<a class="text-info" href="/Project/{{projet.id}}">Plus d'information</a>
+							</td>
+						</tr>
+					{% endfor %}
+				</tbody>
+			</table>
+		</div>
+	</div>
+{% endblock %}

@@ -1,0 +1,84 @@
+{% extends 'base.html.twig' %}
+{% block title %}Projet
+	{{Project.Id}}
+{% endblock %}
+{% block body %}
+	<style>{% include 'css/project.css' %}</style>
+
+	<div>
+		{# <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous"/> #}
+		<div class="container">
+			<div class="row">
+				<div class="col-md-5">
+					<div class="project-info-box">
+						<p>
+							<b>Nom:</b>
+							{{Project.nom}}</p>
+						<p></p>
+						<p>
+							<b>Propriétaire:</b>
+							{{Project.Proprietaire}}</p>
+						<p>
+							<b>Date de création:</b>
+							{{Project.Datec|date('d-m-Y')}}</p>
+						<p>
+							<b>Etat:</b>
+							{{Project.Etat}}</p>
+						<p>
+							<b>Type:</b>
+							{{Project.Type}}</p>
+						<p>
+							<b>Budget:</b>
+							{{Project.Budget}}
+							MAD</p>
+						<p class="mb-0">
+							<b>Dépenses:</b>
+							{{Project.Depenses}}
+							MAD</p>
+						<p>
+							<b>Montant Payé:</b>
+							{{Project.Mpaye}}
+							MAD</p>
+					</div>
+
+				</div>
+				<!-- / column -->
+
+				<div class="col-md-7">
+					<div class="project-info-box">
+						<p>
+							<b>Description du Projet:</b>
+						</p>
+						<p>{{Project.Description}}</p>
+					</div>
+					<div
+						class="project-info-box">
+						{# img #}
+						<p>
+							<b>employées:</b>
+							{% for employee in Project_emps.employee %}
+								<ul>
+									<li>{{employee.prenom}}
+										{{employee.nom}}
+										:
+										{{employee.profile}}</li>
+								</ul>
+							{% endfor %}
+						</p>
+					</div>
+					<div class="project-info-box">
+						<a href="/Project/{{Project.id}}/facture" class="btn btn-info">voir la facture</a>
+						{% if Project.Etat=="livrer" %}
+							<a href="/Project/{{Project.id}}/bon" class="btn btn-dark mx-2">voir le bon de livraison</a>
+						{% endif %}
+
+					</div>
+					<!-- / project-info-box -->
+				</div>
+
+				<!-- / column -->
+			</div>
+		</div>
+	</div>
+
+{% endblock %}

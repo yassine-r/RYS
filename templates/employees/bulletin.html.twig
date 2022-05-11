@@ -1,0 +1,100 @@
+{% block stylesheets %}
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+
+{% endblock %}
+{% block body %}
+	<style>{% include 'css/facture.css' %}</style>
+	<div>
+		<div class="container">
+			<div class="invoice">
+				<div class="row">
+					<div class="col-5">
+						<h1>R<b>Y</b>S</h1>
+					</div>
+					<div class="col-7">
+						<h1 class="document-type display-4">Bulletin de paye</h1>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-6">
+						<p>
+							<strong>INSEA</strong><br>
+							Institut National de Statistique et d'Economie Appliquée Rabat-Instituts Rabat B.P.
+						</p>
+					</div>
+					<div class="col-6">
+						<br><br><br>
+						<p>
+							<strong>Proprietaire: </strong> {{employee.prenom}} {{employee.nom}}<br>
+                            <strong>Adresse: </strong>{{employee.adresse}}
+						</p>
+					</div>
+				</div>
+				<br>
+				<br>
+				<h6>bulletins de paye</h6>
+				<br>
+				<table class="table table-striped text-center">
+					<thead>
+						<tr>
+							<th>Nom</th>
+							<th>Prenom</th>
+							<th>cin</th>
+							<th>Telephone</th>
+
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>{{employee.nom}}</td>
+							<td>{{employee.prenom}}</td>
+							<td>{{employee.cin}}</td>
+							<td>{{employee.phone}}</td>
+						</tr>
+					</tbody>
+				</table>
+                <br>
+                <table class="table table-striped text-center">
+					<thead>
+						<tr>
+							<th>Salaire</th>
+							<th>Prime</th>
+							<th>cnss</th>
+
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>{{employee.salaire}}</td>
+							<td>{{employee.prime}}</td>
+							<td>{{employee.cnss}}</td>
+						</tr>
+					</tbody>
+				</table>
+				<div class="row">
+					<div class="col-8"></div>
+					<div class="col-4">
+						<table class="table table-sm">
+							<tr>
+								<td>
+									<strong>Salaire Brut:</strong>
+								</td>
+								<td>MAD</td>
+							</tr>
+						</table>
+					</div>
+				</div>
+
+				<br>
+				<br>
+				<br>
+				<br>
+
+				<p class="bottom-page text-right">
+					Institut National de Statistique et d'Economie Appliquée Rabat-Instituts Rabat B.P.
+				</p>
+                <p class="text-right text-dark">R<b>Y</b>S</p>
+			</div>
+		</div>
+	</div>
+{% endblock %}

@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Employees
+{% endblock %}
+
+{% block body %}
+	<style>{% include 'css/employees.css' %}</style>
+	<h1 class="text-center text-dark">Employees</h1>
+	<br>
+	<div class="table-responsive">
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>Id</th>
+					<th>Prenom</th>
+					<th>Nom</th>
+					<th>Email</th>
+					<th>Profile</th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for employee in employees %}
+					<tr>
+						<td>{{employee.id}}</td>
+						<td>{{employee.prenom}}</td>
+						<td>{{employee.nom}}</td>
+						<td>{{employee.email}}</td>
+						<td>{{employee.profile}}</td>
+						<td>
+							<a class="text-info mx-1" href="/employees/{{employee.id}}">plus d'information</a>
+							<a class="text-secondary mx-1" href="/employees/{{employee.id}}/bulletin">bulletins de paye</a>
+						</td>
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+	</div>
+
+{% endblock %}

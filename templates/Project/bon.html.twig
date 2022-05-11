@@ -1,0 +1,101 @@
+{% block stylesheets %}
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+  integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l"
+  crossorigin="anonymous"
+/>
+
+{% endblock %} {% block body %}
+<style>
+  {% include 'css/facture.css' %}
+</style>
+<div>
+  <div class="container">
+    <div class="invoice">
+      <div class="row">
+        <div class="col-7">
+          <h1>R<b>Y</b>S</h1>
+        </div>
+        <div class="col-4">
+          <h1 class="document-type display-4">BON DE LIVRAISON</h1>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-7">
+          <p>
+            <strong>INSEA</strong><br />
+            Institut National de Statistique et d'Economie Appliquée
+            Rabat-Instituts Rabat B.P.
+          </p>
+        </div>
+        <div class="col-5">
+          <br /><br /><br />
+          <p>
+            <strong>Proprietaire: Mrs/Ms {{ Project.Proprietaire }} </strong
+            ><br />
+          </p>
+        </div>
+      </div>
+      <br />
+
+      <div class="row">
+          <div class="col-6 bg-light m-3 mb-5 p-2 rounded">
+              <p><strong>Bon N°: </strong>{{Project.id}}</p>
+              <p><strong>Date : </strong>{{date|format_datetime()}}</p>
+              <p><strong>Type du projet: </strong>{{Project.Type}}</p>
+          </div>
+      </div>
+      <table class="table table-striped text-center">
+        <thead>
+          <tr>
+            <th>Nom</th>
+            <th>Date de création</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>{{Project.nom}}</td>
+            <td>{{Project.Datec|date('d-m-Y')}}</td>
+            <td>{{Project.Description}}</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="row">
+        <div class="col-8"></div>
+        <div class="col-4">
+        </div>
+      </div>
+
+      <p class="conditions">
+          <div class="row">
+              <div class="col-6">
+                <p>
+                    <strong>
+                        livré le :
+                    </strong>
+                </p>
+              </div>
+              <div class="col-6">
+                <p>
+                    <strong>
+                        Récu le :
+                    </strong>
+                </p>
+              </div>
+          </div>
+        <p>
+            <strong class="text-right">
+                Signature : _______________
+            </strong>
+        </p>
+      </p>
+      <p class="bottom-page text-right mt-4">
+        Institut National de Statistique et d'Economie Appliquée Rabat-Instituts
+        Rabat B.P.
+      </p>
+    </div>
+  </div>
+</div>
+{% endblock %}
